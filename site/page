@@ -1,18 +1,18 @@
 from django.shortcuts import render
 from django.http import HttpResponse
 
-from .models import Greeting
+from .models import Message
 
 
 def index(request):
     return HttpResponse('Hello World!')
 
 
-def db(request):
+def header(request):
 
     greeting = Message()
     greeting.save()
 
-    greetings = Message.objects.all()
+    messages = Message.objects.all()
 
-    return render(request, 'db.html', {'message': message})
+    return render(request, 'db.html', {'messages': messages})
